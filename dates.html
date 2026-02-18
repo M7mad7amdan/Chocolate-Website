@@ -1,0 +1,306 @@
+    <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+
+  body{
+    background: linear-gradient(135deg, #5b2d8b, #e9a5b5);
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  html, body { overflow-x: hidden; }
+
+  footer > div{
+    flex-wrap: wrap !important;
+    height: auto !important;         
+    gap: 16px !important;
+    padding: 18px 16px !important;   
+    line-height: 1.6;
+  }
+
+  footer > div > div{
+    flex: 1 1 220px;
+    min-width: 180px;
+  }
+
+  footer a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  footer a:hover{
+    text-decoration: underline;
+  }
+
+  @media (max-width: 576px){
+    footer > div{
+      justify-content: center !important;
+      text-align: center;
+    }
+
+    footer > div > div{
+      flex: 1 1 100%;
+    }
+
+    footer > div img{
+      display: inline-block;
+    }
+  }
+
+html, body { overflow-x: hidden; }
+
+@media (max-width: 768px){
+
+  body > div > div[style*="grid-template-columns: 1fr 1fr"]{
+    grid-template-columns: 1fr !important;
+    margin: 0 12px 20px !important;
+    gap: 12px !important;
+  }
+  body > div[style*="grid-template-columns: 1fr 1fr 1fr"]{
+    grid-template-columns: 1fr !important;
+    margin: 0 12px 20px !important;
+    gap: 12px !important;
+  }
+
+  .packs[style*="margin-left"],
+  .packs[style*="margin-right"]{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .packs{
+    grid-template-columns: 1fr !important;
+  }
+
+  .packs img{
+    height: 260px !important;
+    border-radius: 12px 12px 0 0 !important;
+  }
+
+  div[style*="min-width:100vw"]{
+    min-width: auto !important;
+    width: 100% !important;
+    padding: 0 12px !important;
+  }
+}
+
+#AlertSucces,
+#AlertFail{
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+</style>
+
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg shadow-lg" style="margin-bottom: 40px; background-color:#5b2d8b ;margin-bottom: 50px;" >
+    <div class="container-fluid d-flex align-items-center">
+
+    
+        <div class="collapse navbar-collapse order-2 order-lg-1 flex-grow-1 justify-content-center" style="gap: 10px;"  id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+        <li class="nav-item">
+        <a class="nav-link active" href="main.html" style="color: white;">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="https://www.instagram.com/larevechocolate/" style="color: white; margin-left: 50px; margin-right: 50px;">تواصل معنا</a>
+        </li>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;"> المنتجات</a>
+        <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="randompackage.html">بكجات عشوائية</a></li>
+        <li><a class="dropdown-item" href="dates.html">بكجات تمر مغطس بالشوكولاتة</a></li>
+        <li><a class="dropdown-item" href="chocolate.html">بكجات شوكولاتة على ذوفك</a></li>
+        <li><a class="dropdown-item" href="ocassionpage.html">بكجات شوكولاتة للمناسبات الجميلة</a></li>
+        </ul>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="Cart.html" style="color: white;  margin-left: 50px; margin-right: 50px;">المشتريات</a>
+        </li>
+        </ul>
+        </div>
+
+   
+        <button class="navbar-toggler order-1 order-lg-2" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <img src="./chocolatetypeimg/Brown and White Modern Chocolate Shop Logo.png" class="rounded-circle ms-2 ms-lg-0 order-4 " style="width: 30px; height: 30px; margin-left: 1px;">
+        <a class="navbar-brand order-3 ms-2 ms-lg-0" href="main.html" style="color: white;">La rêve chocolate</a>
+
+        </div>
+        </nav>  
+                <!-- ========================the end of navbar div======================================-->
+
+       <div style="width: 100%; margin: 0 auto; max-width: 500px;">
+<div id="AlertSucces" class="alert alert-success d-flex align-items-center d-none">
+  <i class="bi bi-check-circle-fill me-2"></i>
+  <div>
+    تمت إضافة المنتج إلى سلة المشتريات
+  </div>
+</div>
+</div>
+
+    <div style="width: 100%; margin: 0 auto; max-width: 500px;">
+<div id="AlertFail" class="alert alert-warning d-flex align-items-center d-none">
+  <i class="bi bi-check-circle-fill me-2"></i>
+  <div>
+يرجى اختيار البكج الذي ترغب به أولًا لإضافته إلى سلة المشتريات 
+ </div>
+</div>
+</div>
+
+
+
+        <div >
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap:10px ;margin-bottom: 30px;"> 
+        <div style=" background-color: #f8e9ec; display:grid; grid-template-columns: 1fr 1fr ; margin-right: 30px;"   class="rounded-3 shadow-lg packs">
+        <img style="   width: 100%;object-fit: cover; height: 400px;" src="./datesimg/64piece.png"  class="rounded-3 shadow-lg" >
+        <div style="padding: 30px 30px;">
+        <div style="display: flex; justify-content: start; margin-bottom: 30px;">
+         <h2  class="DatesPackName">البكج العائلي -64 حبة </h2>
+        </div>
+         <div>
+        <p style="line-height: 28px;">تشكيلة فاخرة من أجود أنواع التمر المغطس بالشوكولاتة، مثالية للمناسبات الكبيرة ولمشاركة اللحظات الحلوة مع العائلة والأصدقاء.</p> 
+        </div>
+        
+   <div class="form-check" style="display: flex; justify-content: center;">
+  <input class="btn-check DatesPack" type="radio" name="biggerpack" id="biggerpack" value="192">
+  <label class=" btn" for="biggerpack" style="background-color: #7e43bd; color: white;" > 192 شيكل</label>
+</div>
+
+        </div>
+        </div>
+         <div>
+                            
+
+        <div style=" background-color: #f8e9ec; display:grid; grid-template-columns: 1fr 1fr ; margin-left:20px;"   class="rounded-3 shadow-lg packs">
+        <img style="   width: 100%;object-fit: cover; height: 400px;" src="./datesimg/36piece.png"  class="rounded-3 shadow-lg" >
+        <div style="padding: 30px 30px;">
+        <div style="display: flex; justify-content: start; margin-bottom: 30px;">
+        <h2 class="DatesPackName"> بكج الضيافة -36 حبة </h2>
+        </div>
+        <div >
+        <p style="line-height: 28px;">كمية متوسطة تناسب الجلسات العائلية أو الهدايا الأنيقة، تجمع بين الطعم الغني والشكل الراقي. </p> 
+        </div>
+          <div class="form-check" style="display: flex; justify-content: center;">
+  <input class="btn-check DatesPack"  type="radio" name="bigpack" id="bigpack" value="108">
+  <label class=" btn" for="bigpack" style="background-color: #7e43bd; color: white;"> 108 شيكل</label>
+</div>
+      </div>
+       </div>
+        </div>
+        </div>
+        </div>
+ </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; grid-template-rows: 1fr;"> 
+        
+        <div style=" background-color: #f8e9ec; display:grid; grid-template-columns: 1fr 1fr ; margin-left:20px;"   class="rounded-3 shadow-lg packs">
+        <img style="   width: 100%;object-fit: cover; height: 400px;" src="./datesimg/25piece.jpeg"  class="rounded-3 shadow-lg" >
+        <div style="padding: 30px 30px;">
+        <div style="display: flex; justify-content: start; margin-bottom: 30px;">
+        <h2 class="DatesPackName"> بكج متوسط   -25 حبة </h2>
+        </div>
+        <div >
+        <p style="line-height: 28px;">خيار عملي لمن يحب التوازن بين الكمية والسعر، مناسب للإهداء أو الاستمتاع الشخصي.</p> 
+        </div>
+           <div class="form-check " style="display: flex; justify-content: center;">
+  <input class="btn-check DatesPack" type="radio" name="meduimpack" id="meduimpack" value="75">
+  <label class=" btn" for="meduimpack" style="background-color: #7e43bd; color: white;"> 75 شيكل</label>
+</div>
+        </div>
+        </div>
+        
+        
+     
+                        <div style=" background-color: #f8e9ec; display:grid; grid-template-columns: 1fr 1fr ; margin-left:20px;"   class="rounded-3 shadow-lg packs">
+        <img style="   width: 100%;object-fit: cover; height: 400px;" src="./datesimg/16piece.jpeg"  class="rounded-3 shadow-lg" >
+        <div style="padding: 30px 30px;">
+        <div style="display: flex; justify-content: start; margin-bottom: 30px;">
+        <h2 class="DatesPackName"> بكج العائلة – 16 حبة</h2>
+        </div>
+        <div >
+        <p style="line-height: 28px;">بكج صغير وأنيق، مثالي كهديّة بسيطة أو كتحلية راقية في أي وقت.</p> 
+        </div>
+             <div class="form-check" style="display: flex; justify-content: center;">
+  <input class="btn-check DatesPack" type="radio" name="smallpack" id="smallpack" value="48">
+  <label class=" btn" for="smallpack" style="background-color: #7e43bd; color: white;"> 48 شيكل</label>
+</div>
+        </div>
+        </div>
+        
+          
+                       <div style=" background-color: #f8e9ec; display:grid; grid-template-columns: 1fr 1fr ; margin-left:20px;"   class="rounded-3 shadow-lg packs">
+        <img style="   width: 100%;object-fit: cover; height: 400px;" src="./datesimg/12piece.png"  class="rounded-3 shadow-lg" >
+        <div style="padding: 30px 30px;">
+        <div style="display: flex; justify-content: start; margin-bottom: 30px;">
+        <h2 class="DatesPackName"> بكج صغير – 12 حبة</h2>
+        </div>
+        <div >
+        <p style="line-height: 28px;">لمسة حلوة سريعة، مناسبة للضيافة الخفيفة أو لإرضاء رغبتك في شيء مميز.</p> 
+        </div>
+          <div class="form-check" style="display: flex; justify-content: center;">
+  <input class="btn-check DatesPack" type="radio" name="smallestpack" id="smallestpack" value="36">
+  <label class=" btn" for="smallestpack" style="background-color: #7e43bd; color: white;"> 36 شيكل</label>
+</div>
+        </div>
+        </div>
+
+          </div>
+
+            
+        <div style=" display: flex; justify-content: center; min-width:100vw; margin-top: 30px;">
+        <button type="button" class="btn  " style="background-color:#5b2d8b ;color: white;" id="AddToList">اضف الى سلة المشتريات</button>
+        </div>
+     
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+       <script src="dates.js"></script>
+ </body>
+ <footer>
+   <div style="background: rgba(88, 52, 42, 0.35); width: 100%; height: 200px; display:flex; justify-content: space-between; align-items: center; padding: 0 50px;" >
+    
+<div>
+  <h5>La rêve chocolate</h5>
+<p>متجر متخصص في الشوكولاتة الفاخرة والهدايا.</p>
+<div style="display: flex; justify-content: start; gap: 10px;">
+        <a href="https://www.snapchat.com/add/hamdan.haya?share_id=Od3Lk2JMRBKgvwufDUwm3Q&locale=en_US"  ><img src="./chocolatetypeimg/snapchat.png" style="height: 50px; width: 50px; " class="shadow"></a>
+        <a href="https://www.instagram.com/larevechocolate/?next=%2F&hl=ar"  ><img src="./chocolatetypeimg/instgram.png" style="height: 50px; width: 50px;" class="rounded-3 shadow" ></a> 
+        </div>
+
+</div>
+
+<div style="display: flex; gap: 25px;">
+  <a href="main.html">الرئيسية</a>
+<a href="chocolate.html">الشوكولاتة</a>
+<a href="dates.html">التمور</a>
+<a href="cart.html">سلة المشتريات</a>
+</div>
+
+<div>
+<p>© 2026 La rêve chocolate — جميع الحقوق محفوظة</p>
+
+</div>
+
+
+   </div>
+</footer>
+ </html>

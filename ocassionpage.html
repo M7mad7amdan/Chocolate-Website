@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+    body {
+    background: linear-gradient(135deg, #5b2d8b, #e9a5b5);
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    }
+#TheOcassions{
+  flex-wrap: wrap;
+}
+
+#TheOcassions label{
+  flex: 1 1 120px;   
+  white-space: nowrap;
+}
+
+@media (max-width: 576px){
+  .row > .col-8{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .row > .col-8{
+    padding: 24px !important;
+  }
+}
+html, body { overflow-x: hidden; }
+
+footer > div{
+  flex-wrap: wrap !important;
+  height: auto !important;         
+  gap: 16px !important;
+  padding: 18px 16px !important;   
+  line-height: 1.6;
+}
+
+footer > div > div{
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+
+footer a{
+  color: inherit;
+  text-decoration: none;
+}
+
+footer a:hover{
+  text-decoration: underline;
+}
+
+@media (max-width: 576px){
+  footer > div{
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  footer > div > div{
+    flex: 1 1 100%;
+  }
+
+  footer > div img{
+    display: inline-block;
+  }
+}
+
+#AlertSucces,
+#AlertFail{
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+</style>
+</head>
+<body>
+      <nav class="navbar navbar-expand-lg shadow-lg" style="margin-bottom: 40px; background-color:#5b2d8b ;margin-bottom: 50px;" >
+    <div class="container-fluid d-flex align-items-center">
+
+    
+        <div class="collapse navbar-collapse order-2 order-lg-1 flex-grow-1 justify-content-center" style="gap: 10px;"  id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+        <li class="nav-item">
+        <a class="nav-link active" href="main.html" style="color: white;">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="https://www.instagram.com/larevechocolate/" style="color: white; margin-left: 50px; margin-right: 50px;">تواصل معنا</a>
+        </li>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;"> المنتجات</a>
+        <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="randompackage.html">بكجات عشوائية </a></li>
+        <li><a class="dropdown-item" href="dates.html">بكجات تمر مغطس بالشوكولاتة</a></li>
+        <li><a class="dropdown-item" href="chocolate.html">بكجات شوكولاتة على ذوفك</a></li>
+        <li><a class="dropdown-item" href="ocassionpage.html">بكجات شوكولاتة للمناسبات الجميلة</a></li>
+        </ul>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="Cart.html" style="color: white;  margin-left: 50px; margin-right: 50px;">المشتريات</a>
+        </li>
+        </ul>
+        </div>
+
+   
+        <button class="navbar-toggler order-1 order-lg-2" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <img src="./chocolatetypeimg/Brown and White Modern Chocolate Shop Logo.png" class="rounded-circle ms-2 ms-lg-0 order-4 " style="width: 30px; height: 30px; margin-left: 1px;">
+        <a class="navbar-brand order-3 ms-2 ms-lg-0" href="main.html" style="color: white;">La rêve chocolate</a>
+
+        </div>
+        </nav> 
+
+        <!--========================================================================================================-->
+          <div style="width: 100%; margin: 0 auto; max-width: 500px;">
+          <div id="AlertSucces" class="alert alert-success d-flex align-items-center d-none">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            <div>
+              تمت إضافة المنتج إلى سلة المشتريات
+            </div>
+          </div>
+          </div>
+
+              <div style="width: 100%; margin: 0 auto; max-width: 500px;">
+          <div id="AlertFail" class="alert alert-warning d-flex align-items-center d-none">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            <div>
+          يرجى اختيار البكج الذي ترغب به أولًا لإضافته إلى سلة المشتريات 
+          </div>
+          </div>
+          </div>
+
+
+
+
+      <div class="row">
+        <div class="shadow-lg col-12 col-md-10 col-lg-8 rounded-4 " style="background-color: rgb(179, 43, 179); margin: auto auto ; padding: 50px  50px;"  >
+          <div class="shadow-lg col-12 rounded-4" style="background-color: rgb(255, 255, 255); margin: auto auto ">
+        
+            <div style=" display: flex; justify-content: center; " >
+        <h1 class="fw-bold mb-2">اختر المناسبة </h1>
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <p class="text-muted mb-4">نخصص لك البكج حسب مناسبتك وذوقك</p>
+</div>
+      
+
+
+<div class="d-flex gap-2 mb-4 "  id="TheOcassions">
+ <input type="radio" class="btn-check ChooseOcassion" name="occasion" id="wedding" value="wedding">
+  <label  for="wedding" class="btn btn-outline-secondary fw-semibold flex-fill">
+    زواج
+  </label>
+
+  <input type="radio" class="btn-check ChooseOcassion" name="occasion" id="graduation" value="graduation">
+  <label for="graduation" class="btn btn-outline-secondary fw-semibold flex-fill">
+    تخرج
+  </label>
+
+  <input type="radio" class="btn-check ChooseOcassion" name="occasion" id="baby" value="baby">
+  <label class="btn btn-outline-secondary fw-semibold flex-fill fw-semibold" for="baby">
+    مولود جديد
+  </label>
+
+  <input type="radio" class="btn-check ChooseOcassion" name="occasion" id="birthday" value="birthday">
+  <label  for="birthday" class="btn btn-outline-secondary fw-semibold flex-fill">
+    يوم ميلاد
+  </label>
+
+  <input type="radio" class="btn-check ChooseOcassion" name="occasion" id="other" value="other">
+  <label class="btn btn-outline-secondary fw-semibold flex-fill" for="other">
+    مناسبة أخرى
+  </label>
+</div>
+
+<div class="col-8" style="margin: 0 auto ;" id="YourOcassion"> 
+<label class="form-label fw-semibold">ادخل المناسبة الخاصة بك</label>
+<input type="text" class="form-control mb-4" placeholder="مثال: ذكرى زواج، ترقية، نجاح…" >
+</div>
+
+<div class="col-8 mb-4" style="margin:0 auto;">
+<label class="form-label fw-semibold">ادخل وصف للشوكولاتة</label>
+<textarea id="OcassionDescription" class="form-control" rows="3" placeholder="مثال: نحب اللون البنفسجي ونفضل شوكولاتة داكنة"></textarea>
+</div>
+
+<div class="col-6" style="margin: auto auto; ">
+  <h4>هل تريد الطباعة على الشوكولاتة</h4>
+</div>
+
+<div class="col-8 mb-4 d-flex gap-2" style="margin:0 auto;">
+
+<input type="radio" name="PrintOnChocolate" id="YesPrint" class="btn-check PrintChocolate" value="yes">
+<label for="YesPrint" class="btn btn-outline-secondary flex-fill fw-semibold">نعم</label>
+
+<input type="radio" name="PrintOnChocolate" id="NoPrint" class="btn-check PrintChocolate" value="no">
+<label for="NoPrint" class="btn btn-outline-secondary flex-fill fw-semibold">لا</label>
+
+</div>
+
+<div class="col-8 mb-4 " style="margin:0 auto;" id="PrintOnChoco" >
+<label class="form-label fw-semibold">هل لديك أفكار معينة تحب أن نطبعها؟</label>
+<textarea id="PrintIdea" class="form-control" rows="3" placeholder="مثال: عبارة تهنئة، اسم شخص، تاريخ خاص..."></textarea>
+</div>
+
+
+
+<div class="col-8 mb-5" style="margin:0 auto;" id="ImgToPrint">
+<label class="form-label fw-semibold">هل تحب إضافة صور ليتم طباعتها على الشوكولاتة؟</label>
+<input class="form-control" type="file" id="ImgPrint" multiple>
+</div>
+
+<div class="col-8 mb-5" style="margin:0 auto;" >
+        <span class="input-group-text">ادخل العدد الذي تريده</span>
+        <input type="number" class="form-control price-input"  id="NumberOfPiece" >
+        </div>
+
+<p class="text-muted text-center">
+السعر للحبة الواحدة هو 3 شيكل </p>
+
+<p class="text-muted text-center">
+⏱ مدة تجهيز الطلب: من 24 إلى 48 ساعة
+</p>
+
+<div style="display: flex; justify-content: center;">
+<button type="button" class="btn btn-primary btn-lg" id="AddToList">اضف الى سلة المشتريات</button>
+</div>
+
+      </div>
+</div>
+</div>
+
+
+
+
+
+        <!--========================================================================================================-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="ocassion.js"></script>
+
+<footer>
+   <div style="background: rgba(88, 52, 42, 0.35); width: 100%; height: 200px; display:flex; justify-content: space-between; align-items: center; padding: 0 50px;" >
+    
+<div>
+  <h5>La rêve chocolate</h5>
+<p>متجر متخصص في الشوكولاتة الفاخرة والهدايا.</p>
+<div style="display: flex; justify-content: start; gap: 10px;">
+        <a href="https://www.snapchat.com/add/hamdan.haya?share_id=Od3Lk2JMRBKgvwufDUwm3Q&locale=en_US"  ><img src="./chocolatetypeimg/snapchat.png" style="height: 50px; width: 50px; " class="shadow"></a>
+        <a href="https://www.instagram.com/larevechocolate/?next=%2F&hl=ar"  ><img src="./chocolatetypeimg/instgram.png" style="height: 50px; width: 50px;" class="rounded-3 shadow" ></a> 
+        </div>
+
+</div>
+
+<div style="display: flex; gap: 25px;">
+  <a href="main.html">الرئيسية</a>
+<a href="chocolate.html">الشوكولاتة</a>
+<a href="dates.html">التمور</a>
+<a href="cart.html">سلة المشتريات</a>
+</div>
+
+<div>
+<p>© 2026 La rêve chocolate — جميع الحقوق محفوظة</p>
+
+</div>
+
+
+   </div>
+</footer>
+</body>
+</html>
