@@ -64,7 +64,7 @@ let OrderMsg = document.getElementById('OrderMsg')
 let ModalBox = document.getElementById("ModalBox")
 
 if (SendTheOrder) {
-  SendTheOrder.addEventListener("click", function (e) {
+  SendTheOrder.addEventListener("click", async function (e) {
     e.preventDefault();
 
     let name = UserName ? UserName.value.trim() : "";
@@ -72,7 +72,12 @@ if (SendTheOrder) {
     let location = UserLocation ? UserLocation.value.trim() : "";
 
     if (name === "" || phone === "" || location === "") {
-      alert("لو سمحت عبّي الاسم، رقم الهاتف، والموقع 🙏");
+      alert("لو سمحت عبّي الاسم، رقم الهاتف، والموقع ");
+      return;
+    }
+
+    if (!CART || CART.length === 0) {
+      alert("سلة المشتريات فاضية ");
       return;
     }
 
@@ -80,19 +85,44 @@ if (SendTheOrder) {
     localStorage.setItem("Phone", phone);
     localStorage.setItem("Location", location);
 
-    if (ModalBox && window.bootstrap) {
-      let instance = bootstrap.Modal.getInstance(ModalBox);
-      if (!instance) instance = new bootstrap.Modal(ModalBox);
-      instance.hide();
-    }
+    const orderData = {
+      customerName: name,
+      customerPhone: phone,
+      customerLocation: location,
+      items: CART,
+      total: TotalResult(),
+      status: "new"
+    };
 
+    try {
+      const orderId = await window.saveOrderToFirestore(orderData);
+      console.log("Order saved with id:", orderId);
 
-    if (OrderMsg) {
-      OrderMsg.classList.remove("d-none");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      setTimeout(function () {
-        OrderMsg.classList.add("d-none");
-      }, 4000);
+      localStorage.removeItem("cart");
+      CART = [];
+      renderCart();
+      updateTotal();
+
+      let modalElement = document.getElementById("exampleModal");
+      if (modalElement && window.bootstrap) {
+        let modalInstance = bootstrap.Modal.getInstance(modalElement);
+        if (!modalInstance) {
+          modalInstance = new bootstrap.Modal(modalElement);
+        }
+        modalInstance.hide();
+      }
+
+      if (OrderMsg) {
+        OrderMsg.classList.remove("d-none");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(function () {
+          OrderMsg.classList.add("d-none");
+        }, 4000);
+      }
+
+    } catch (error) {
+      console.error(error);
+      alert("صار خطأ أثناء إرسال الطلب  جرّب مرة ثانية");
     }
   });
 }
